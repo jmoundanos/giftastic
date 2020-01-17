@@ -1,28 +1,78 @@
+p{
+    font-family: 'Martel Sans', sans-serif;
+    color: #402B8C;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 button{
     color: white;
-    background-color: #00806F;
-    background-color: #00806F;
-    border: 1px solid #004037;
+    background-color: #402B8C;
+    font-family: 'Martel Sans', sans-serif;
+    border: 1px solid #402B8C;
     border-radius: 25px;
     margin: 10px;
     padding: 10px;
+    font-size: 1rem;
+}
+label{
+    font-family: 'Ruda', sans-serif;
+    margin: 10px;
+    font-size: 1.5rem;
+}
+.col-6{
+    padding-top: 30px;
 }
 .container-fluid{
-    background-color: #009681;
+    background-color: #79E6F2;
     height: 100%;
+    padding: 10px;
+    
 }
 .container{
-    border: 2px solid #004037;
+    background-color: #5F94D9;
+    border: 2px solid #402B8C;
     margin: 20px;
+    color: #402B8C;
+    
 }
 .display-4{
     font-size: 4rem;
     text-align: center;
-    color: #004037;
+    color: #402B8C;
+    font-family: 'Lobster Two', cursive;
    
 }
 .lead{
-    font-size: 2rem;
-    border-top: 2px solid #004037;
+    font-size: 1.5rem;
     text-align: center;
+    font-family: 'Ruda', sans-serif;
+}
+#buttons{
+    text-align: center;
+}
+#add-show{
+    color: white;
+    background-color: #F2856D;
+    font-family: 'Martel Sans', sans-serif;
+    border: 1px solid #F2856D;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 1.5rem;
+}
+#show-input{
+    border-radius: 20px;
+    font-size: 1rem;
+
+}
+#show-form{
+    text-align: center;
+    font-family: 'Martel Sans', sans-serif;
+    color: #402B8C;
+}
+#gifs{
+    text-align: center;
+    border: 2px solid #402B8C;
+    min-height: 200px;
 }

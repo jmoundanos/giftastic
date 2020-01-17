@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="assets/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster+Two:700i|Martel+Sans|Ruda&display=swap" rel="stylesheet">
         <title>Giftastic</title>
     </head>
     <body>
@@ -11,11 +12,23 @@
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                   <h1 class="display-4">Giftastic!</h1>
-                  <p class="lead">Click a button to see the gifs! Then click a gif to see it animate!</p>
+                  <p class="lead">See gifs from your favorite shows with the click of a button!</p>
                 </div>
               </div>
-            <div class="buttons"></div>
-            <div id="gifs"></div>
+            <div class="row" id="buttons"></div>
+           
+            <div class="row">
+                <div class="col-4"></div>
+                
+            <form id="show-form">
+                <label for="show-input">Add your favorite show!</label><br>
+                <input type="text" id="show-input"><br>
+                <input id="add-show" type="submit" value="Submit">
+              </form>
+            
+              <div class="col-4"></div>
+              </div>
+              <div class="row" id="gifs"></div>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="assets/javascript/logic.js"></script>

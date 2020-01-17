@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 var topics = ["The Office", "Parks and Recreation", "Schitts Creek", "Fleabag", 
           "The Americans", "The Marvelous Mrs. Maisel"];
-
+var show = " ";
   function showButtons(){
     $("#gifs").empty();
 
@@ -10,7 +10,7 @@ var topics = ["The Office", "Parks and Recreation", "Schitts Creek", "Fleabag",
       a.addClass("shows");
       a.attr("data-name", topics[i]);
       a.text(topics[i]);
-      $(".buttons").append(a);
+      $("#buttons").append(a);
   }
 }
 showButtons(); 
@@ -25,7 +25,7 @@ showButtons();
       console.log(response);
       var results = response.data;
      for (var j = 0; j < results.length; j++) {
-        var topicDiv = $("<div>");
+        var topicDiv = $("<div class='col-6'>");
         var p = $("<p>").text("Rating: " + results[j].rating);
         var topicImage = $("<img>");
 
@@ -35,8 +35,8 @@ showButtons();
         topicImage.attr("data-state", "still");
        
         topicImage.addClass("gif")
-        topicDiv.append(p);
         topicDiv.append(topicImage);
+        topicDiv.append(p);
         $("#gifs").append(topicDiv);
     }
   })
@@ -59,7 +59,14 @@ $("#gifs").on("click",".gif", function(event){
   }
  
 })
-
+  $("#add-show").on("click", function(event){
+      preventDefault(event);
+      show = $("#show-input").val().trim();
+     // console.log(show);
+      topics.push(show);
+      console.log(topics);
+      //showButtons();
+})
 
  
 
