@@ -21,7 +21,12 @@ label{
     font-size: 1.5rem;
 }
 .col-6{
-    padding-top: 30px;
+    width: 50%;
+}
+.gif{
+    max-width: 100%;
+    height: auto; 
+    padding-top: 20px;
 }
 .container-fluid{
     background-color: #79E6F2;
@@ -51,7 +56,7 @@ label{
 #buttons{
     text-align: center;
 }
-#add-show{
+#add-show, #show-more-gifs{
     color: white;
     background-color: #F2856D;
     font-family: 'Martel Sans', sans-serif;
@@ -66,13 +71,14 @@ label{
     font-size: 1rem;
 
 }
-#show-form{
-    text-align: center;
+.show-form{
+    padding-top: 20px;
     font-family: 'Martel Sans', sans-serif;
     color: #402B8C;
+    text-align: center;
 }
-#gifs{
+#showGifs{
     text-align: center;
     border: 2px solid #402B8C;
-    min-height: 200px;
+    min-height: 300px;
 }

@@ -1,21 +1,37 @@
 $( document ).ready(function() {
 var topics = ["The Office", "Parks and Recreation", "Schitts Creek", "Fleabag", 
-          "The Americans", "The Marvelous Mrs. Maisel"];
-var show = " ";
+          "The Americans","The Crown", "The Marvelous Mrs. Maisel"];
+var show = "";
+var a;
+
   function showButtons(){
-    $("#gifs").empty();
+    $("#buttons").empty();
 
     for(i = 0; i < topics.length; i++){
-      var a = $("<button>");
+      a = $("<button>");
       a.addClass("shows");
       a.attr("data-name", topics[i]);
       a.text(topics[i]);
       $("#buttons").append(a);
   }
 }
-showButtons(); 
+showButtons();
+
+$("#add-show").on("click", function(event){
+  event.preventDefault();
+  
+  show = $("#show-input").val().trim();
+  topics.push(show);
+  $("#show-input").empty();
+  showButtons();
+  displayGifs();
+  $("#show-input").val("");
+})
+
+function displayGifs(){
   $("button").on("click", function(){
   var topic = $(this).attr("data-name");
+  
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=Z6CItVp0vuxji42m4eq3FU3ppmr9UqQF&limit=10";
 
   $.ajax({
@@ -24,9 +40,11 @@ showButtons();
   }).done(function(response) {
       console.log(response);
       var results = response.data;
+      $("#showGifs").empty();
      for (var j = 0; j < results.length; j++) {
-        var topicDiv = $("<div class='col-6'>");
-        var p = $("<p>").text("Rating: " + results[j].rating);
+        var topicDiv = $("<div>");
+        var rating = $("<p>").text("Rating: " + results[j].rating);
+        var title = $("<p>").text("Title: " + results[j].title);
         var topicImage = $("<img>");
 
         topicImage.attr("src", results[j].images.fixed_height_still.url);
@@ -36,14 +54,17 @@ showButtons();
        
         topicImage.addClass("gif")
         topicDiv.append(topicImage);
-        topicDiv.append(p);
-        $("#gifs").append(topicDiv);
+        topicDiv.append(title);
+        topicDiv.append(rating);
+        $("#showGifs").append(topicDiv);
+        
     }
   })
  
 })
-$("#gifs").on("click",".gif", function(event){
-  event.preventDefault();
+}
+$("#showGifs").on("click",".gif", function(event){
+  event.preventDefault(event);
   var state = $(this).attr("data-state");
     
   if(state === "still"){
@@ -57,17 +78,10 @@ $("#gifs").on("click",".gif", function(event){
     $(this).attr("src", stillVal);
     $(this).attr("data-state", "still");
   }
- 
+  
 })
-  $("#add-show").on("click", function(event){
-      preventDefault(event);
-      show = $("#show-input").val().trim();
-     // console.log(show);
-      topics.push(show);
-      console.log(topics);
-      //showButtons();
+$("#show-more-gifs").on("click", function(event){
 })
-
- 
+displayGifs();
 
 })
